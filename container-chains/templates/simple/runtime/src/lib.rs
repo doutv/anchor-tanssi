@@ -193,7 +193,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
     spec_name: create_runtime_str!("container-chain-template"),
     impl_name: create_runtime_str!("container-chain-template"),
     authoring_version: 1,
-    spec_version: 400,
+    spec_version: 405,
     impl_version: 0,
     apis: RUNTIME_API_VERSIONS,
     transaction_version: 1,
@@ -697,6 +697,7 @@ construct_runtime!(
 
         RootTesting: pallet_root_testing = 100,
 
+        Anchor: pallet_anchor,
     }
 );
 
@@ -944,4 +945,10 @@ cumulus_pallet_parachain_system::register_validate_block! {
     Runtime = Runtime,
     BlockExecutor = pallet_author_inherent::BlockExecutor::<Runtime, Executive>
     CheckInherents = CheckInherents,
+}
+
+impl pallet_anchor::Config for Runtime {
+    type RuntimeEvent = RuntimeEvent;
+    type Currency = Balances;
+    type WeightInfo = pallet_anchor::weights::SubstrateWeight<Runtime>;
 }
