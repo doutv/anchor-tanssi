@@ -17,6 +17,7 @@ authors = [ "Moondance Labs" ]
 repository = "https://github.com/moondance-labs/tanssi"
 
 [workspace.dependencies]
+getrandom = { version = "0.2", features = ["js"], default-features = false }
 
 # Members
 pallet-anchor = { path = "pallets/anchor" }
