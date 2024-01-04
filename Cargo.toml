@@ -17,10 +17,8 @@ authors = [ "Moondance Labs" ]
 repository = "https://github.com/moondance-labs/tanssi"
 
 [workspace.dependencies]
-getrandom = { version = "0.2", features = ["js"], default-features = false }
-
 # Members
-pallet-anchor = { path = "pallets/anchor" }
+pallet-anchor = { path = "pallets/anchor", default-features = false }
 pallet-author-noting = { path = "pallets/author-noting", default-features = false }
 pallet-author-noting-runtime-api = { path = "pallets/author-noting/rpc/runtime-api", default-features = false }
 pallet-authority-assignment = { path = "pallets/authority-assignment", default-features = false }
